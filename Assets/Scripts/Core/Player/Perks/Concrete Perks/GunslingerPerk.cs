@@ -2,27 +2,29 @@ using System.ComponentModel;
 using UnityEngine;
 using System.Threading.Tasks;
 using Zenject;
+using Core.Player.Perks.Managers;
+
 
 namespace Core.Player.Perks
 {
     public class GunslingerPerk : AbstractPerk
     {
         private GameObject _projectilePrefab;
-        private PerkBalanceManager _perkBalanceManager;
+        
+        private GunslingerPerkBalanceManager _perkBalanceManager;
         private UpgradablePerkManager _upgradablePerkManager;
         private PerkLoopManager _perkLoopManager;
         
         [Inject]
         void Init(GunslingerBalanceContainer balanceContainer)
         {
-            _projectilePrefab = Resources.Load<GameObject>("Player/Projectile");
-            _perkBalanceManager = new PerkBalanceManager(balanceContainer);
+            GetProjectilePrefab();
+            _perkBalanceManager = new GunslingerPerkBalanceManager(balanceContainer);
             _upgradablePerkManager = new UpgradablePerkManager(_perkBalanceManager);
-            _perkLoopManager = new PerkLoopManager(_perkBalanceManager);
+            _perkLoopManager = new PerkLoopManager(_perkBalanceManager,Activate);
         }
-
-        private void Start() => _perkLoopManager.PerkReloadLoop(Activate);
-
+        
+        // TEMP
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -32,6 +34,8 @@ namespace Core.Player.Perks
         }
         
         public override void Activate() => ShootAtNearestEnemy();
+        
+        private void GetProjectilePrefab() => _projectilePrefab = Resources.Load<GameObject>("Player/Projectile");
         
         private async Task ShootAtNearestEnemy()
         {

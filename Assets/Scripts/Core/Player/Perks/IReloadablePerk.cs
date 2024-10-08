@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
+using UnityEngine;
 
 public interface IReloadablePerk
 {
-   Task PerkReloadLoop();
+   [Tooltip("Perk Reload Time in milliseconds")]
+   int ReloadTime { get; }
 }

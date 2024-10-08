@@ -4,8 +4,10 @@ using UnityEngine;
 
 public interface IUpgradablePerk
 {
-   public int CurrentLevel { get; set; }
-   public int MaxLevel { get; set; }
-   
-   void LevelUp();
+    [Tooltip("Gets max amount of upgrades")]
+    int LevelsCount { get; }
+
+    [Tooltip("Updates current balance asset according to level")]
+    void UpdateBalanceAsset(int currentLevelIndex);
+
 }

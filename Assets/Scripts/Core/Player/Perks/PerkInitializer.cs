@@ -14,19 +14,32 @@ public class PerkInitializer : MonoBehaviour
         _container = newContainer;
     }
 
-    public void InstantiateComponent()
+    public void InstantiateGunslingerPerk()
     {
-        Debug.Log("InstantiateComponent");
+        Debug.Log("InstantiateGunslingerPerk");
 
         var component = gameObject.AddComponent<GunslingerPerk>();
+        _container.Inject(component);
+    }
+    
+    public void InstantiateGarlicPerk()
+    {
+        Debug.Log("InstantiateGarlicPerk");
+
+        var component = gameObject.AddComponent<SaintGarlicPerk>();
         _container.Inject(component);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            InstantiateComponent();
+            InstantiateGunslingerPerk();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            InstantiateGarlicPerk();
         }
     }
 }
