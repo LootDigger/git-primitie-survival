@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 6306014328039881167}
   - component: {fileID: 7506993681725145917}
   - component: {fileID: 2211241506649158452}
+  - component: {fileID: 3539076121044816281}
+  - component: {fileID: 7843873925622189313}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,3 +120,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0b1f9bbd7a29d45b875bb5ca3a994d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3539076121044816281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326068516466518486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a2fe2ddf9f554bac4660d4cd6e668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraPrefab: {fileID: 6997499219821824954, guid: 727012aa574079148aa110294ce0d6d7, type: 3}
+--- !u!114 &7843873925622189313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326068516466518486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97795c7f1a9c11f4ea12d29a54ea5888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 582804748501298198, guid: 97aa771f2fbb6f948ba7fe4a8a4e9129, type: 3}
+  projectileSpeed: 10
